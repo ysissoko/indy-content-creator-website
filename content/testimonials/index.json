@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "quote": "Indy a compris notre univers en un brief. Les contenus ont dépassé nos objectifs d'engagement.",
+      "name": "Camille R.",
+      "role": "Marque d'épicerie fine",
+      "avatar": null
+    },
+    {
+      "quote": "Professionnelle, créative et rapide. Nos ventes ont grimpé la semaine de la campagne.",
+      "name": "Julien M.",
+      "role": "Ustensiles de cuisine",
+      "avatar": null
+    },
+    {
+      "quote": "Un vrai regard d'artiste sur la food. On retravaille ensemble chaque trimestre depuis.",
+      "name": "Sofia L.",
+      "role": "Marque de boissons",
+      "avatar": null
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd job that runs the Instagram feed updater every 6 hours.
+
+  Install:
+    cp scripts/com.indy.update-feed.plist ~/Library/LaunchAgents/
+    launchctl load  ~/Library/LaunchAgents/com.indy.update-feed.plist
+
+  Check / stop:
+    launchctl list | grep com.indy.update-feed
+    launchctl unload ~/Library/LaunchAgents/com.indy.update-feed.plist
+
+  Logs are written to scripts/update-feed.log.
+  If you move the project, update the paths below.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.indy.update-feed</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/yasuke/Documents/indy-content-creator-website/scripts/update-feed.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/yasuke/Documents/indy-content-creator-website</string>
+
+    <!-- Every 6 hours (in seconds). Also runs once right after it's loaded. -->
+    <key>StartInterval</key>
+    <integer>21600</integer>
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/yasuke/Documents/indy-content-creator-website/scripts/update-feed.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/yasuke/Documents/indy-content-creator-website/scripts/update-feed.log</string>
+</dict>
+</plist>

@@ -1,0 +1,24 @@
+{
+  "name": "Indy",
+  "tagline": "Créatrice de contenu food",
+  "domainLabel": "indy.food",
+  "seoDescription": "Indy — créatrice de contenu food depuis 2020. Recettes, mises en scène et vidéos qui donnent faim, et créations pour les marques.",
+  "contactEmail": "ysissoko78@gmail.com",
+  "socials": {
+    "instagram": "https://instagram.com/",
+    "tiktok": "https://tiktok.com/",
+    "snapchat": "https://snapchat.com/"
+  },
+  "heroImage": null,
+  "aboutImage": null,
+  "heroBadge": {
+    "value": 380000,
+    "label": "Communauté totale"
+  },
+  "stats": [
+    { "value": 248000, "label": "Instagram", "suffix": null },
+    { "value": 92000, "label": "TikTok", "suffix": null },
+    { "value": 40000, "label": "Snapchat", "suffix": null },
+    { "value": 5200000, "label": "Vues / mois", "suffix": null }
+  ]
+}
