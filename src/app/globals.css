@@ -18,6 +18,7 @@
 @theme inline {
   --font-serif: var(--font-cormorant);
   --font-sans: var(--font-jost);
+  --font-handwriting: var(--font-caveat);
 }
 
 * {
@@ -49,6 +50,15 @@ body {
 /* Count-up numbers use tabular figures so they don't jitter while animating. */
 .tnum {
   font-variant-numeric: tabular-nums;
+}
+
+/* Hide the scrollbar on the horizontal phone rows while keeping scroll/swipe. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

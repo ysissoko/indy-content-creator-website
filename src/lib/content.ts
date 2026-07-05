@@ -1,8 +1,8 @@
-import "server-only";
-import { cache } from "react";
-import { createReader } from "@keystatic/core/reader";
-import keystaticConfig from "../../keystatic.config";
 import { defaults, type Site } from "@/config/site";
+import { createReader } from "@keystatic/core/reader";
+import { cache } from "react";
+import "server-only";
+import keystaticConfig from "../../keystatic.config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 
@@ -18,13 +18,14 @@ const img = (v: string | null | undefined) => v ?? "";
  * a single read.
  */
 export const getSiteContent = cache(async (): Promise<Site> => {
-  const [settings, recipes, feed, partners, testimonials] = await Promise.all([
-    reader.singletons.settings.read(),
-    reader.singletons.recipes.read(),
-    reader.singletons.feed.read(),
-    reader.singletons.partners.read(),
-    reader.singletons.testimonials.read(),
-  ]);
+  const [settings, collaborations, feed, partners, testimonials] =
+    await Promise.all([
+      reader.singletons.settings.read(),
+      reader.singletons.collaborations.read(),
+      reader.singletons.feed.read(),
+      reader.singletons.partners.read(),
+      reader.singletons.testimonials.read(),
+    ]);
 
   return {
     name: settings?.name || defaults.name,
@@ -44,13 +45,6 @@ export const getSiteContent = cache(async (): Promise<Site> => {
     heroImage: img(settings?.heroImage) || defaults.heroImage,
     aboutImage: img(settings?.aboutImage) || defaults.aboutImage,
 
-    heroBadge: settings?.heroBadge
-      ? {
-          value: settings.heroBadge.value ?? defaults.heroBadge.value,
-          label: settings.heroBadge.label || defaults.heroBadge.label,
-        }
-      : defaults.heroBadge,
-
     stats:
       settings?.stats && settings.stats.length > 0
         ? settings.stats.map((s) => ({
@@ -60,15 +54,16 @@ export const getSiteContent = cache(async (): Promise<Site> => {
           }))
         : defaults.stats,
 
-    recipes:
-      recipes?.items && recipes.items.length > 0
-        ? recipes.items.map((r) => ({
-            image: img(r.image),
-            title: r.title,
-            meta: r.meta,
-            link: r.link || undefined,
+    collaborations:
+      collaborations?.items && collaborations.items.length > 0
+        ? collaborations.items.map((c) => ({
+            category: c.category,
+            image: img(c.image),
+            title: c.title,
+            meta: c.meta,
+            link: c.link || undefined,
           }))
-        : defaults.recipes,
+        : defaults.collaborations,
 
     feed:
       feed?.items && feed.items.length > 0

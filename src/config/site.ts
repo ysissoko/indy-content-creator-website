@@ -30,11 +30,15 @@ export interface FeedItem {
   alt: string;
 }
 
-export interface Recipe {
+export type CollabCategory = "food" | "restaurant";
+
+export interface Collaboration {
+  /** Which categorized section the post appears in. */
+  category: CollabCategory;
   image: string; // path under /public or full URL; leave "" for placeholder
   title: string;
-  meta: string; // e.g. "Dessert · 45 min"
-  link?: string; // optional link to the full recipe
+  meta: string; // e.g. "Dessert · 45 min" (food) or "Paris 11e" (restaurant)
+  link?: string; // optional link to the Instagram reel
 }
 
 export interface Testimonial {
@@ -66,12 +70,6 @@ export const defaults = {
   heroImage: "",
   aboutImage: "",
 
-  /** Hero photo overlay badge (total community). */
-  heroBadge: {
-    value: 380000,
-    label: "Communauté totale",
-  },
-
   /**
    * Social stats bar. Edit the numbers whenever they grow — they animate
    * with a count-up on load. `value` is a plain integer; it's formatted
@@ -98,11 +96,19 @@ export const defaults = {
     { image: "", link: "https://instagram.com/", alt: "Publication Instagram 6" },
   ] as FeedItem[],
 
-  recipes: [
-    { image: "", title: "Tarte rustique aux figues", meta: "Dessert · 45 min" },
-    { image: "", title: "Bowl crémeux au sésame", meta: "Végé · 25 min" },
-    { image: "", title: "Pancakes moelleux vanille", meta: "Brunch · 20 min" },
-  ] as Recipe[],
+  /**
+   * Collaborations, grouped into two categorized sections by `category`:
+   *  - "food"       → recettes & créations food pour les marques
+   *  - "restaurant" → avis / mises en avant de restaurants
+   * Each post is shown as a thumbnail inside an iPhone frame and links to the reel.
+   */
+  collaborations: [
+    { category: "food", image: "", title: "Tarte rustique aux figues", meta: "Dessert · 45 min" },
+    { category: "food", image: "", title: "Bowl crémeux au sésame", meta: "Végé · 25 min" },
+    { category: "food", image: "", title: "Pancakes moelleux vanille", meta: "Brunch · 20 min" },
+    { category: "restaurant", image: "", title: "Bistrot du Marché", meta: "Paris 11e" },
+    { category: "restaurant", image: "", title: "Chez Malia", meta: "Cuisine sénégalaise" },
+  ] as Collaboration[],
 
   /** Partner brands — put logo files in /public/partners, or leave "" for a placeholder box. */
   partners: [

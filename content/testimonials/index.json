@@ -1,22 +1,28 @@
 {
   "items": [
     {
-      "quote": "Indy a compris notre univers en un brief. Les contenus ont dépassé nos objectifs d'engagement.",
-      "name": "Camille R.",
+      "quote": "Franchement franchement\nJe suis super mega satisfaite\nC'est exactement le genre de contenu dont j'avais besoin\nJe suis IN LOVE des vidéos\nOn re- signe pour d'autres vidéos",
+      "name": "Les délices d'adama",
       "role": "Marque d'épicerie fine",
-      "avatar": null
+      "avatar": "/images/testimonials/items/0/avatar.avif"
     },
     {
-      "quote": "Professionnelle, créative et rapide. Nos ventes ont grimpé la semaine de la campagne.",
-      "name": "Julien M.",
-      "role": "Ustensiles de cuisine",
-      "avatar": null
+      "quote": "Hello Indy,\nJ'adore ça donne trop envie et la voix off est top.\nJe l'envoie au client et te tiens au courant :)",
+      "name": "Dakatine",
+      "role": "Marque d'épicerie",
+      "avatar": "/images/testimonials/items/1/avatar.png"
     },
     {
-      "quote": "Un vrai regard d'artiste sur la food. On retravaille ensemble chaque trimestre depuis.",
-      "name": "Sofia L.",
-      "role": "Marque de boissons",
-      "avatar": null
+      "quote": "Hi the drink-making video is absolutely fantastic! It perfectly conveys the vibe that anyone can easily DIY their own drinks at home using the C300. This aligns beautifully with the core selling points we wanted to express! Thank you so much!",
+      "name": "Hydrofast",
+      "role": "Électroménager",
+      "avatar": "/images/testimonials/items/2/avatar.jpg"
+    },
+    {
+      "quote": "La vidéo est parfaitement parfaite\nJ'aime trop\nFranchement tu es l'une de mes meilleures collaborations\nTon travail est non seulement propre mais super mega rapide alors que je ne suis même pas dans l'urgence\nDonc franchement merci beaucoup",
+      "name": "Les délices d'adama",
+      "role": "Marque d'épicerie fine",
+      "avatar": "/images/testimonials/items/3/avatar.avif"
     }
   ]
 }

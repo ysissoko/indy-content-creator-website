@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Caveat, Cormorant_Garamond, Jost } from "next/font/google";
 import { getSiteContent } from "@/lib/content";
+import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -15,6 +16,13 @@ const jost = Jost({
   variable: "--font-jost",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -36,8 +44,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className={`${cormorant.variable} ${jost.variable}`}>
+      <body className={`${cormorant.variable} ${jost.variable} ${caveat.variable}`}>
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

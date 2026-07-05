@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import type { SocialKey } from "@/config/site";
+import { useState } from "react";
 import SocialLinks from "./SocialLinks";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -22,7 +22,10 @@ export default function Contact({
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    const data = Object.fromEntries(new FormData(form)) as Record<
+      string,
+      string
+    >;
 
     // Honeypot: bots fill hidden fields, humans don't.
     if (data.company) return;

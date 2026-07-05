@@ -1,9 +1,24 @@
 {
   "items": [
-    { "name": "Marque 1", "logo": null },
-    { "name": "Marque 2", "logo": null },
-    { "name": "Marque 3", "logo": null },
-    { "name": "Marque 4", "logo": null },
-    { "name": "Marque 5", "logo": null }
+    {
+      "name": "Dakatine",
+      "logo": "/images/partners/items/0/logo.png"
+    },
+    {
+      "name": "Hydrofast",
+      "logo": "/images/partners/items/1/logo.jpg"
+    },
+    {
+      "name": "The smoked meat",
+      "logo": "/images/partners/items/2/logo.png"
+    },
+    {
+      "name": "A l'africaine",
+      "logo": "/images/partners/items/3/logo.jpeg"
+    },
+    {
+      "name": "Les délices d'Adama",
+      "logo": "/images/partners/items/4/logo.avif"
+    }
   ]
 }

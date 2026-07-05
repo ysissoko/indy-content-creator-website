@@ -1,0 +1,39 @@
+{
+  "items": [
+    {
+      "category": "food",
+      "title": "DAKATINE ",
+      "meta": "Plat · 45 min",
+      "image": "/images/collaborations/items/0/image.jpeg",
+      "link": "https://www.instagram.com/reel/DU0Jcj2iBsd/?igsh=MWljamhrMG8xbjM5MQ=="
+    },
+    {
+      "category": "food",
+      "title": "DAKATINE ",
+      "meta": "Dessert · 10 min",
+      "image": "/images/collaborations/items/1/image.jpeg",
+      "link": "https://www.instagram.com/reel/DU0Jcj2iBsd/?igsh=MWljamhrMG8xbjM5MQ=="
+    },
+    {
+      "category": "food",
+      "title": "HYDROFAST",
+      "meta": "Mocktail · 5 min",
+      "image": "/images/collaborations/items/2/image.jpeg",
+      "link": "https://www.instagram.com/reel/DZ7llsEtAaS/?igsh=MWMyamhvamF2bmY5Nw=="
+    },
+    {
+      "category": "restaurant",
+      "title": "THE SMOKED MEAT",
+      "meta": "Paris 11e",
+      "image": "/images/collaborations/items/3/image.jpeg",
+      "link": "https://www.instagram.com/reel/DQfIAOdgIqc/?igsh=MXR3aW9ybHl0dTFqNw=="
+    },
+    {
+      "category": "restaurant",
+      "title": "À L'AFRICAINE",
+      "meta": "Fontenay s/s bois",
+      "image": "/images/collaborations/items/4/image.jpeg",
+      "link": "https://www.instagram.com/reel/DYSNxTAtOyq/?igsh=ajI3NHo3b3J3eHBh"
+    }
+  ]
+}

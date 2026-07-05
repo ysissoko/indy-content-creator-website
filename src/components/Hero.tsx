@@ -1,5 +1,4 @@
 import { getSiteContent } from "@/lib/content";
-import { formatCount } from "@/lib/format";
 import Photo from "./Photo";
 
 export default async function Hero() {
@@ -50,14 +49,6 @@ export default async function Hero() {
             rounded="rounded-none"
             className="absolute inset-0 h-full w-full"
           />
-          <div className="absolute bottom-8 left-5 rounded-xl bg-[#f6efe4] px-6 py-5 shadow-[0_18px_40px_-20px_rgba(58,48,40,.5)] sm:left-8">
-            <div className="font-serif text-[34px] font-semibold leading-none text-[#37302a]">
-              {formatCount(site.heroBadge.value)}
-            </div>
-            <div className="mt-1 text-[12px] uppercase tracking-[0.1em] text-[#9a8a74]">
-              {site.heroBadge.label}
-            </div>
-          </div>
         </div>
       </div>
     </section>

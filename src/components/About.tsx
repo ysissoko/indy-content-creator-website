@@ -13,10 +13,10 @@ export default async function About() {
           className="min-h-[320px] md:min-h-[420px]"
         />
         <div>
-          <span className="text-[13px] uppercase tracking-[0.28em] text-[#c98b7e]">
-            À propos
+          <span className="text-[20px] uppercase tracking-[0.28em] text-[#c98b7e]">
+            à propos de moi
           </span>
-          <h2 className="mb-6 mt-4 font-serif font-medium leading-[1.05] text-[#37302a] text-[clamp(34px,5vw,52px)]">
+          <h2 className="mb-6 mt-4 font-serif font-small leading-[1.05] text-[#37302a] text-[clamp(26px,4vw,40px)]">
             Je m&apos;appelle Indy,
             <br />
             et je fais aimer

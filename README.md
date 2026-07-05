@@ -126,10 +126,40 @@ Logs go to `scripts/update-feed.log`. To stop:
 `launchctl unload ~/Library/LaunchAgents/com.indy.update-feed.plist`.
 (If you move the project folder, update the paths inside the `.plist`.)
 
-### Making the *live* site update
-The job runs on your Mac, so set `AUTO_COMMIT=true` in `.env.local` to have it
-commit + push the new feed (this needs the GitHub repo + `git push` access set
-up); Vercel then redeploys. With `AUTO_COMMIT=false` it only updates local files.
+### Making the *live* site update — push to GitHub (Vercel auto-redeploys)
+
+Because the repo is connected to Vercel through GitHub, the job publishes by
+committing the updated feed and pushing to `origin/main`; Vercel then rebuilds
+automatically. This is the default:
+
+```
+AUTO_COMMIT=true
+VERCEL_DEPLOY=false
+```
+
+The script commits `content/feed` + `public/images/feed`, runs
+`git pull --rebase --autostash` (so a push isn't rejected if GitHub has newer
+commits, e.g. CMS edits), then pushes. It only does this when the feed actually
+changed.
+
+**Pushing over SSH from launchd:** a scheduled job has no access to your
+terminal's ssh-agent, so the key's passphrase must live in the macOS **login
+keychain**. Your `~/.ssh/config` already has `UseKeychain yes`, and this is
+verified working. If you ever move machines and pushes fail with a `publickey`
+error, run once:
+```bash
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+<details>
+<summary>Alternative: deploy with the Vercel CLI instead of GitHub</summary>
+
+If you'd rather bypass GitHub, set `VERCEL_DEPLOY=true`, add a `VERCEL_TOKEN`
+(from <https://vercel.com/account/tokens>), and link the project once with
+`npx vercel link`. Don't enable both this and the GitHub push, or you'll get two
+deployments per update. Note that env vars (like `RESEND_API_KEY`) must be set
+in the Vercel project either way — they aren't uploaded from `.env.local`.
+</details>
 
 > **Reality check:** Instagram actively blocks automated/anonymous access,
 > especially from cloud/datacenter IPs. Running on your home Mac (residential IP)

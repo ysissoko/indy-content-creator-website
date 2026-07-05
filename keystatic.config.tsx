@@ -33,7 +33,7 @@ export default config({
     brand: { name: "Indy — Contenu" },
     navigation: {
       Général: ["settings"],
-      Contenu: ["recipes", "feed", "partners", "testimonials"],
+      Contenu: ["collaborations", "feed", "partners", "testimonials"],
     },
   },
 
@@ -62,13 +62,6 @@ export default config({
         ),
         heroImage: image("hero"),
         aboutImage: image("about"),
-        heroBadge: fields.object(
-          {
-            value: fields.integer({ label: "Communauté totale (nombre)" }),
-            label: fields.text({ label: "Libellé" }),
-          },
-          { label: "Badge hero" },
-        ),
         stats: fields.array(
           fields.object({
             value: fields.integer({ label: "Nombre" }),
@@ -86,22 +79,32 @@ export default config({
       },
     }),
 
-    // ── Recettes ────────────────────────────────────────────────────────────
-    recipes: singleton({
-      label: "Recettes",
-      path: "content/recipes/index",
+    // ── Collaborations (Food / Avis restaurant) ──────────────────────────────
+    collaborations: singleton({
+      label: "Collaborations",
+      path: "content/collaborations/index",
       format: { data: "json" },
       schema: {
         items: fields.array(
           fields.object({
+            category: fields.select({
+              label: "Catégorie",
+              defaultValue: "food",
+              options: [
+                { label: "Food", value: "food" },
+                { label: "Avis restaurant", value: "restaurant" },
+              ],
+            }),
             title: fields.text({ label: "Titre" }),
-            meta: fields.text({ label: "Détail (ex: Dessert · 45 min)" }),
-            image: image("recipes"),
+            meta: fields.text({
+              label: "Détail (ex: Dessert · 45 min, ou ville / restaurant)",
+            }),
+            image: image("collaborations"),
             link: optionalUrl,
           }),
           {
-            label: "Recettes",
-            itemLabel: (p) => p.fields.title.value || "Recette",
+            label: "Collaborations",
+            itemLabel: (p) => p.fields.title.value || "Collaboration",
           },
         ),
       },

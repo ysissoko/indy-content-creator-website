@@ -26,12 +26,13 @@ Config via environment variables (see .env.local):
 
 from __future__ import annotations
 
+import getpass
 import json
 import os
 import re
 import sys
-import time
 import tempfile
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -89,7 +90,7 @@ def main() -> None:
     import requests
 
     print(f"[update-feed] Fetching latest {COUNT} posts from @{PROFILE} …")
-
+    
     loader = instaloader.Instaloader(
         quiet=True,
         download_pictures=False,
@@ -100,6 +101,14 @@ def main() -> None:
         save_metadata=False,
         max_connection_attempts=2,
     )
+    if os.environ.get("INSTAGRAM_PASSWORD") is None:
+        print(
+            "[update-feed] Instagram password not set in environment; "
+            "prompting for it (input is hidden)."
+        )
+        PASSWORD = getpass.getpass("Mot de passe : ")
+
+    loader.login(PROFILE, os.environ.get("INSTAGRAM_PASSWORD", PASSWORD))  # optional
 
     try:
         profile = instaloader.Profile.from_username(loader.context, PROFILE)

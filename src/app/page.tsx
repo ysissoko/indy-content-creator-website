@@ -2,9 +2,8 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
 import About from "@/components/About";
-import Recipes from "@/components/Recipes";
+import Collaborations from "@/components/Collaborations";
 import Feed from "@/components/Feed";
-import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -19,9 +18,8 @@ export default async function Home() {
         <Hero />
         <StatsBar />
         <About />
-        <Recipes />
+        <Collaborations />
         <Feed />
-        <Partners />
         <Testimonials />
         <Contact contactEmail={site.contactEmail} socials={site.socials} />
       </main>

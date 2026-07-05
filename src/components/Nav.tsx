@@ -2,8 +2,8 @@ import { getSiteContent } from "@/lib/content";
 
 const links = [
   { href: "#apropos", label: "À propos" },
-  { href: "#recettes", label: "Recettes" },
-  { href: "#marques", label: "Marques" },
+  { href: "#collaborations", label: "Collaborations" },
+  { href: "#avis-restaurants", label: "Restaurants" },
   { href: "#avis", label: "Avis" },
   { href: "#contact", label: "Contact" },
 ];
