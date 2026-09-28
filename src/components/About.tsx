@@ -24,14 +24,15 @@ export default async function About() {
             la cuisine.
           </h2>
           <p className="mb-5 max-w-[520px] text-[17px] font-light leading-[1.75] text-[#5b5044]">
-            Depuis 2020, je partage des recettes accessibles et généreuses. Mon
-            truc : rendre chaque plat désirable, du choix de la lumière au
-            dernier plan sur la fourchette.
+            La cuisine fait partie de moi depuis toujours. J&apos;aime autant
+            revisiter des recettes traditionnelles que créer des recettes
+            originales, avec l&apos;envie de toujours apporter ma petite
+            touche.
           </p>
           <p className="max-w-[520px] text-[17px] font-light leading-[1.75] text-[#5b5044]">
-            Aujourd&apos;hui, j&apos;accompagne aussi les marques food dans la
-            création de contenus qui donnent envie — shooting, vidéos courtes,
-            recettes signées.
+            À travers mes contenus, j&apos;aime partager une cuisine
+            gourmande, créative et accessible mais surtout créer des recettes
+            qui donnent réellement envie de cuisiner.
           </p>
         </div>
       </div>

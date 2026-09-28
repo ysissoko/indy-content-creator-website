@@ -1,18 +1,22 @@
 {
   "items": [
     {
+      "image": "/images/feed/reel-1.jpg",
       "link": "https://www.instagram.com/reel/DU0Jcj2iBsd/?igsh=MWljamhrMG8xbjM5MQ==",
       "alt": "Publication Instagram 1"
     },
     {
+      "image": "/images/feed/reel-2.jpg",
       "link": "https://www.instagram.com/reel/DWTGNbHCHvR/?igsh=MTY5eDNsZWFwbnpuNQ==",
       "alt": "Publication Instagram 2"
     },
     {
+      "image": "/images/feed/reel-3.jpg",
       "link": "https://www.instagram.com/reel/DYSNxTAtOyq/?igsh=ajI3NHo3b3J3eHBh",
       "alt": "Publication Instagram 3"
     },
     {
+      "image": "/images/feed/reel-4.jpg",
       "link": "https://www.instagram.com/reel/DZ7llsEtAaS/?igsh=MWMyamhvamF2bmY5Nw==",
       "alt": "Publication Instagram 4"
     }
