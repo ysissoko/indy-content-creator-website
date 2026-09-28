@@ -163,8 +163,19 @@ in the Vercel project either way — they aren't uploaded from `.env.local`.
 
 > **Reality check:** Instagram actively blocks automated/anonymous access,
 > especially from cloud/datacenter IPs. Running on your home Mac (residential IP)
-> works best. If anonymous access gets blocked, `instaloader` supports a
-> logged-in session (`instaloader --login=you`) — ask and this can be wired in.
+> works best. The script logs in with a saved instaloader session: the first
+> run in a terminal asks for the password (and 2FA code) once, then reuses the
+> session. Set `INSTAGRAM_LOGIN` to log in with a different account than
+> `INSTAGRAM_PROFILE`.
+
+### Collaboration thumbnails
+```bash
+npm run update-thumbnails
+```
+Sets the photo of every collaboration that has an Instagram link to the reel's
+video thumbnail, replacing any photo chosen in the CMS. Collaborations without
+an Instagram link keep their photo.
+(`bash scripts/update-feed.sh all` refreshes the feed and thumbnails together.)
 
 ---
 

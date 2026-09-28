@@ -39,13 +39,13 @@ if [ -f "$REPO_ROOT/.env.local" ]; then
   set +a
 fi
 
-# 3. Run the updater ---------------------------------------------------------
-"$VENV/bin/python" "$REPO_ROOT/scripts/update_feed.py"
+# 3. Run the updater (mode: feed | collabs | all, default feed) ---------------------------------------------------------
+"$VENV/bin/python" "$REPO_ROOT/scripts/update_feed.py" "$@"
 
 # 4. Publish the update --------------------------------------------------------
 # Only act if the feed actually changed. We detect changes with git when the
 # folder is a repo; otherwise we assume it changed and proceed.
-FEED_PATHS=(content/feed public/images/feed)
+FEED_PATHS=(content/feed public/images/feed content/collaborations public/images/collaborations)
 CHANGED=true
 if command -v git >/dev/null 2>&1 && git rev-parse --git-dir >/dev/null 2>&1; then
   if [ -z "$(git status --porcelain "${FEED_PATHS[@]}" 2>/dev/null)" ]; then
@@ -67,7 +67,7 @@ if [ "${AUTO_COMMIT:-false}" = "true" ] && command -v git >/dev/null 2>&1; then
   if git diff --cached --quiet -- "${FEED_PATHS[@]}"; then
     log "Nothing staged to commit."
   else
-    git commit -m "chore: auto-update Instagram feed" >/dev/null
+    git commit -m "chore: auto-update Instagram content" >/dev/null
     if git remote get-url origin >/dev/null 2>&1; then
       BRANCH="$(git branch --show-current)"
       # Integrate any remote commits first so the push isn't rejected
