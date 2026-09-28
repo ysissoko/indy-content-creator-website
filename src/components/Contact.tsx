@@ -122,7 +122,7 @@ export default function Contact({
           </a>
         </div>
 
-        <form onSubmit={onSubmit} className="flex flex-col gap-3.5" noValidate>
+        <form onSubmit={onSubmit} className="flex flex-col gap-3.5">
           <input
             name="name"
             required
