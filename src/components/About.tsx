@@ -16,23 +16,22 @@ export default async function About() {
           <span className="text-[20px] uppercase tracking-[0.28em] text-[#c98b7e]">
             à propos de moi
           </span>
-          <h2 className="mb-6 mt-4 font-serif font-small leading-[1.05] text-[#37302a] text-[clamp(26px,4vw,40px)]">
+          {/* <h2 className="mb-6 mt-4 font-serif font-small leading-[1.05] text-[#37302a] text-[clamp(26px,4vw,40px)]">
             Je m&apos;appelle Indy,
             <br />
             et je fais aimer
             <br />
             la cuisine.
-          </h2>
+          </h2> */}
           <p className="mb-5 max-w-[520px] text-[17px] font-light leading-[1.75] text-[#5b5044]">
             La cuisine fait partie de moi depuis toujours. J&apos;aime autant
             revisiter des recettes traditionnelles que créer des recettes
-            originales, avec l&apos;envie de toujours apporter ma petite
-            touche.
+            originales, avec l&apos;envie de toujours apporter ma petite touche.
           </p>
           <p className="max-w-[520px] text-[17px] font-light leading-[1.75] text-[#5b5044]">
-            À travers mes contenus, j&apos;aime partager une cuisine
-            gourmande, créative et accessible mais surtout créer des recettes
-            qui donnent réellement envie de cuisiner.
+            À travers mes contenus, j&apos;aime partager une cuisine gourmande,
+            créative et accessible mais surtout créer des recettes qui donnent
+            réellement envie de cuisiner.
           </p>
         </div>
       </div>

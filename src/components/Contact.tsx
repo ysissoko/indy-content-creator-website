@@ -1,8 +1,26 @@
 "use client";
 
 import type { SocialKey } from "@/config/site";
-import { useState } from "react";
+import Script from "next/script";
+import { useEffect, useRef, useState } from "react";
 import SocialLinks from "./SocialLinks";
+
+// Public key — safe to ship to the browser. Override per environment if needed.
+const TURNSTILE_SITE_KEY =
+  process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "0x4AAAAAAFHyZ6r3QzHZeTjI";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        el: HTMLElement,
+        opts: { sitekey: string; action?: string; theme?: string },
+      ) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -18,6 +36,27 @@ export default function Contact({
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
+  const turnstileEl = useRef<HTMLDivElement>(null);
+  const widgetId = useRef<string | null>(null);
+
+  // Render explicitly so we keep the widget ID: tokens are single-use, and the
+  // page stays open after a submit, so each attempt needs a reset.
+  function renderTurnstile() {
+    if (!window.turnstile || !turnstileEl.current || widgetId.current) return;
+    widgetId.current = window.turnstile.render(turnstileEl.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      action: "contact",
+      theme: "dark",
+    });
+  }
+
+  useEffect(
+    () => () => {
+      if (widgetId.current) window.turnstile?.remove(widgetId.current);
+      widgetId.current = null;
+    },
+    [],
+  );
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -40,6 +79,8 @@ export default function Contact({
           name: data.name,
           email: data.email,
           message: data.message,
+          company: data.company,
+          token: data["cf-turnstile-response"],
         }),
       });
       if (!res.ok) {
@@ -51,6 +92,8 @@ export default function Contact({
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Une erreur est survenue.");
+    } finally {
+      if (widgetId.current) window.turnstile?.reset(widgetId.current);
     }
   }
 
@@ -112,6 +155,8 @@ export default function Contact({
             className="hidden"
           />
 
+          <div ref={turnstileEl} className="min-h-[65px]" />
+
           <button
             type="submit"
             disabled={status === "sending"}
@@ -136,6 +181,10 @@ export default function Contact({
           )}
         </form>
       </div>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        onReady={renderTurnstile}
+      />
     </section>
   );
 }

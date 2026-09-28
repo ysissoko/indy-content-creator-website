@@ -10,22 +10,27 @@
     "snapchat": "https://snapchat.com/t/ykemyJsY"
   },
   "heroImage": "/images/hero/heroImage.png",
+  "aboutImage": "/images/about/aboutImage.jpg",
   "stats": [
     {
-      "value": 248000,
-      "label": "Instagram"
+      "value": 763000,
+      "label": "Spectateurs"
     },
     {
-      "value": 92000,
-      "label": "TikTok"
+      "value": 72000,
+      "label": "J'aime"
     },
     {
-      "value": 40000,
-      "label": "Snapchat"
+      "value": 2000000,
+      "label": "Vues de reel"
     },
     {
-      "value": 5200000,
-      "label": "Vues / mois"
+      "value": 41000,
+      "label": "Enregistrements"
+    },
+    {
+      "value": 14000,
+      "label": "Partages"
     }
   ]
 }

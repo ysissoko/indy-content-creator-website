@@ -71,6 +71,16 @@ own domain, verify it in Resend and set `CONTACT_FROM` in `.env.local`.
 
 > `.env.local` is git-ignored, so your key is never committed.
 
+**Anti-spam (Cloudflare Turnstile):** the form is protected by a Turnstile
+widget, verified server-side before any email is sent. Set these variables:
+
+| Variable              | Local (`.env.local`) | Vercel (Production) |
+| --------------------- | -------------------- | ------------------- |
+| `TURNSTILE_SECRET`    | widget secret        | widget secret       |
+| `TURNSTILE_HOSTNAMES` | `localhost`          | `indyslife.com`     |
+
+Without them, every submission is rejected (403).
+
 ---
 
 ## 🚀 Deploying (free, on Vercel)
