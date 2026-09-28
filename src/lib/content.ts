@@ -18,13 +18,14 @@ const img = (v: string | null | undefined) => v ?? "";
  * a single read.
  */
 export const getSiteContent = cache(async (): Promise<Site> => {
-  const [settings, collaborations, feed, partners, testimonials] =
+  const [settings, collaborations, feed, partners, testimonials, tarifs] =
     await Promise.all([
       reader.singletons.settings.read(),
       reader.singletons.collaborations.read(),
       reader.singletons.feed.read(),
       reader.singletons.partners.read(),
       reader.singletons.testimonials.read(),
+      reader.singletons.tarifs.read(),
     ]);
 
   return {
@@ -88,5 +89,17 @@ export const getSiteContent = cache(async (): Promise<Site> => {
             avatar: img(t.avatar) || undefined,
           }))
         : defaults.testimonials,
+
+    tarifs:
+      tarifs?.items && tarifs.items.length > 0
+        ? tarifs.items.map((t) => ({
+            title: t.title,
+            price: t.price,
+            unit: t.unit,
+            features: t.features ? [...t.features] : [],
+          }))
+        : defaults.tarifs,
+    tarifsPriceNote: tarifs?.priceNote || defaults.tarifsPriceNote,
+    tarifsRevisionsNote: tarifs?.revisionsNote || defaults.tarifsRevisionsNote,
   };
 });

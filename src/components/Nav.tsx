@@ -5,6 +5,7 @@ const links = [
   { href: "#collaborations", label: "Collaborations" },
   { href: "#avis-restaurants", label: "Restaurants" },
   { href: "#avis", label: "Avis" },
+  { href: "#tarifs", label: "Tarifs" },
   { href: "#contact", label: "Contact" },
 ];
 

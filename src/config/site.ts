@@ -48,6 +48,13 @@ export interface Testimonial {
   avatar?: string; // optional path under /public
 }
 
+export interface TarifItem {
+  title: string;
+  price: string;
+  unit: string;
+  features: string[];
+}
+
 export const defaults = {
   /** Brand + SEO */
   name: "Indy",
@@ -139,6 +146,55 @@ export const defaults = {
       role: "Marque de boissons",
     },
   ] as Testimonial[],
+
+  /** Grille tarifaire. */
+  tarifs: [
+    {
+      title: "Création de contenu",
+      price: "à partir de 350 €",
+      unit: "1 vidéo",
+      features: [
+        "Conception & réalisation",
+        "Script si nécessaire",
+        "Tournage",
+        "Montage",
+      ],
+    },
+    {
+      title: "Story recette",
+      price: "150 €",
+      unit: "1 story recette",
+      features: [
+        "Création d'une recette courte en format Story",
+        "Réalisation & tournage",
+        "Intégration du produit dans la recette",
+      ],
+    },
+    {
+      title: "UGC",
+      price: "à partir de 400 €",
+      unit: "1 vidéo UGC",
+      features: [
+        "Conception du contenu",
+        "Script si nécessaire",
+        "Tournage",
+        "Montage",
+      ],
+    },
+    {
+      title: "Droits publicitaires",
+      price: "+50 %",
+      unit: "Ads",
+      features: [
+        "Utilisation du contenu en publicité pendant 1 mois",
+        "Renouvelable par période d'1 mois",
+      ],
+    },
+  ] as TarifItem[],
+  tarifsPriceNote:
+    "Le tarif peut évoluer selon la complexité du brief, le nombre de contenus demandés et les usages prévus.",
+  tarifsRevisionsNote:
+    "Jusqu'à 3 révisions incluses. Toute demande supplémentaire fera l'objet d'une facturation additionnelle.",
 };
 
 export type Site = typeof defaults;

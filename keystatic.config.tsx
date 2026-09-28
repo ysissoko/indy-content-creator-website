@@ -33,7 +33,7 @@ export default config({
     brand: { name: "Indy — Contenu" },
     navigation: {
       Général: ["settings"],
-      Contenu: ["collaborations", "feed", "partners", "testimonials"],
+      Contenu: ["collaborations", "feed", "partners", "testimonials", "tarifs"],
     },
   },
 
@@ -167,6 +167,41 @@ export default config({
             itemLabel: (p) => p.fields.name.value || "Témoignage",
           },
         ),
+      },
+    }),
+
+    // ── Tarifs ─────────────────────────────────────────────────────────────────
+    tarifs: singleton({
+      label: "Tarifs",
+      path: "content/tarifs/index",
+      format: { data: "json" },
+      schema: {
+        items: fields.array(
+          fields.object({
+            title: fields.text({ label: "Titre (ex: Création de contenu)" }),
+            price: fields.text({ label: "Prix (ex: à partir de 350 €)" }),
+            unit: fields.text({ label: "Unité (ex: 1 vidéo)" }),
+            features: fields.array(
+              fields.text({ label: "Prestation" }),
+              {
+                label: "Prestations incluses",
+                itemLabel: (p) => p.value || "Prestation",
+              },
+            ),
+          }),
+          {
+            label: "Offres",
+            itemLabel: (p) => p.fields.title.value || "Offre",
+          },
+        ),
+        priceNote: fields.text({
+          label: "Note sur les tarifs",
+          multiline: true,
+        }),
+        revisionsNote: fields.text({
+          label: "Note sur les révisions",
+          multiline: true,
+        }),
       },
     }),
   },
