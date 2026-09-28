@@ -67,7 +67,7 @@ export default function Contact({
             en tête ?
           </h2>
           <p className="mb-8 max-w-[400px] text-[17px] font-light leading-[1.7] text-[#c9bba6]">
-            Shooting, recettes signées, vidéos courtes ou campagne complète —
+            Recettes, vidéos courtes, UGC ou campagne complète —
             dites-moi tout.
           </p>
           <SocialLinks socials={socials} variant="light" />

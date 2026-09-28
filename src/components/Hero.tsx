@@ -24,7 +24,7 @@ export default async function Hero() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="#recettes"
+              href="#collaborations"
               className="rounded-full bg-[#37302a] px-[30px] py-[15px] text-[14px] uppercase tracking-[0.06em] text-[#f6efe4] transition-colors hover:bg-[#2e2822]"
             >
               Voir les recettes

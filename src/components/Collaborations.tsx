@@ -97,8 +97,8 @@ export default async function Collaborations() {
               </div>
 
               <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 sm:mx-0 sm:px-0">
-                {items.map((item) => (
-                  <PhoneCard key={item.title} item={item} />
+                {items.map((item, i) => (
+                  <PhoneCard key={`${item.link ?? item.title}-${i}`} item={item} />
                 ))}
               </ul>
             </div>

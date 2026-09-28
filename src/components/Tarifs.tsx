@@ -10,7 +10,7 @@ export default async function Tarifs() {
           Tarifs
         </span>
         <h2 className="mb-12 font-serif font-medium text-[#37302a] text-[clamp(30px,5vw,46px)]">
-          Création de contenu à partir de 350 €
+          Des formats pour chaque besoin
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

@@ -29,7 +29,12 @@ export default async function Feed() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+        {/* 4 posts fill one row of 4; otherwise use 6 columns. */}
+        <div
+          className={`grid grid-cols-2 gap-3 sm:gap-4 ${
+            site.feed.length === 4 ? "sm:grid-cols-4" : "sm:grid-cols-3 lg:grid-cols-6"
+          }`}
+        >
           {site.feed.map((post, i) => (
             <a
               key={i}

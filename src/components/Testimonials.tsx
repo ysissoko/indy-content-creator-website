@@ -87,9 +87,6 @@ export default async function Testimonials() {
                           {m}
                         </span>
                       ))}
-                      <span className="mt-1 self-end text-[11px] text-[#b3a89a]">
-                        il y a 2 j
-                      </span>
                     </blockquote>
                   </figure>
                 );
