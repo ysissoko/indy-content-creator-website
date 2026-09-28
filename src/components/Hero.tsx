@@ -48,6 +48,7 @@ export default async function Hero() {
             caption="portrait / photo hero"
             rounded="rounded-none"
             className="absolute inset-0 h-full w-full"
+            unoptimized
           />
         </div>
       </div>

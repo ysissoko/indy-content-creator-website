@@ -11,17 +11,26 @@ export default function Photo({
   caption,
   className = "",
   rounded = "rounded-xl",
+  unoptimized = false,
 }: {
   src?: string;
   alt: string;
   caption?: string;
   className?: string;
   rounded?: string;
+  unoptimized?: boolean;
 }) {
   if (src) {
     return (
       <div className={`relative overflow-hidden ${rounded} ${className}`}>
-        <Image src={src} alt={alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 640px" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          unoptimized={unoptimized}
+          className="object-cover"
+          sizes="100vw"
+        />
       </div>
     );
   }
