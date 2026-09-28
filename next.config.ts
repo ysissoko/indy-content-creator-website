@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
     // Local /public images work without any config.
     remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
+  // Keystatic's reader loads content/** from disk at runtime. Those files are
+  // not imported anywhere, so the tracer leaves them out of the serverless
+  // bundle and dynamic routes (e.g. /api/contact) silently fall back to the
+  // defaults in src/config/site.ts.
+  outputFileTracingIncludes: {
+    "/*": ["./content/**/*"],
+    "/api/*": ["./content/**/*"],
+  },
 };
 
 export default nextConfig;
