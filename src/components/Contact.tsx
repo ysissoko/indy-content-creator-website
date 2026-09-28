@@ -67,7 +67,7 @@ export default function Contact({
     >;
 
     // Honeypot: bots fill hidden fields, humans don't.
-    if (data.company) return;
+    if (data.hp_field) return;
 
     setStatus("sending");
     setError("");
@@ -79,7 +79,7 @@ export default function Contact({
           name: data.name,
           email: data.email,
           message: data.message,
-          company: data.company,
+          company: data.hp_field,
           token: data["cf-turnstile-response"],
         }),
       });
@@ -148,7 +148,7 @@ export default function Contact({
           {/* honeypot — visually hidden, ignored by humans */}
           <input
             type="text"
-            name="company"
+            name="hp_field"
             tabIndex={-1}
             autoComplete="off"
             aria-hidden
