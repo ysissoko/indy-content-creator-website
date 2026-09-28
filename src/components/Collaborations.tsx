@@ -1,5 +1,6 @@
 import type { CollabCategory, Collaboration } from "@/config/site";
 import { getSiteContent } from "@/lib/content";
+import Carousel from "./Carousel";
 import PhoneFrame from "./PhoneFrame";
 
 /** Section metadata for each collaboration category, in display order. */
@@ -96,11 +97,11 @@ export default async function Collaborations() {
                 </a>
               </div>
 
-              <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 sm:mx-0 sm:px-0">
+              <Carousel>
                 {items.map((item, i) => (
                   <PhoneCard key={`${item.link ?? item.title}-${i}`} item={item} />
                 ))}
-              </ul>
+              </Carousel>
             </div>
           </section>
         );
