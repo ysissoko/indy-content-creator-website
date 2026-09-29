@@ -189,6 +189,19 @@ def update_feed(instaloader, loader) -> None:
             '(e.g. INSTAGRAM_PROFILE="indyslife_").'
         )
 
+    # This function rebuilds content/feed/index.json from scratch, but
+    # `altEn` (the English alt text, edited by hand in Keystatic) isn't
+    # sourced from Instagram — carry it over from the previous file, keyed by
+    # post link, so a re-run never wipes a translation.
+    existing_alt_en: dict[str, str] = {}
+    try:
+        existing = json.loads(FEED_JSON.read_text(encoding="utf-8"))
+        for item in existing.get("items", []):
+            if item.get("link") and item.get("altEn"):
+                existing_alt_en[item["link"]] = item["altEn"]
+    except Exception:
+        pass  # first run, or unreadable — nothing to carry over
+
     log(f"Fetching latest {COUNT} posts from @{PROFILE} …")
     try:
         profile = instaloader.Profile.from_username(loader.context, PROFILE)
@@ -211,11 +224,13 @@ def update_feed(instaloader, loader) -> None:
             (FEED_IMG_DIR / filename).write_bytes(download(loader, post.url))
 
             when = post.date_utc.replace(tzinfo=timezone.utc)
+            link = f"https://www.instagram.com/p/{shortcode}/"
             items.append(
                 {
                     "image": f"{FEED_PREFIX}/{filename}",
-                    "link": f"https://www.instagram.com/p/{shortcode}/",
+                    "link": link,
                     "alt": clean_alt(post.caption, PROFILE, when),
+                    "altEn": existing_alt_en.get(link, ""),
                 }
             )
             kept_files.add(filename)

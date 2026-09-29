@@ -1,16 +1,17 @@
 import { getSiteContent } from "@/lib/content";
+import type { Locale } from "@/i18n/config";
 
-export default async function Tarifs() {
-  const site = await getSiteContent();
+export default async function Tarifs({ locale }: { locale: Locale }) {
+  const site = await getSiteContent(locale);
 
   return (
     <section id="tarifs" className="bg-white">
       <div className="mx-auto max-w-[1180px] px-5 py-16 sm:px-10 md:py-20">
         <span className="mb-4 block text-[13px] uppercase tracking-[0.28em] text-[#c98b7e]">
-          Tarifs
+          {site.texts.tarifs.eyebrow}
         </span>
         <h2 className="mb-12 font-serif font-medium text-[#37302a] text-[clamp(30px,5vw,46px)]">
-          Des formats pour chaque besoin
+          {site.texts.tarifs.title}
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -46,7 +47,7 @@ export default async function Tarifs() {
 
         <div className="mt-6 max-w-[640px] rounded-[14px] border border-[#e0d3bd] bg-[#f6efe4] px-5 py-4">
           <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-[#37302a]">
-            Révisions
+            {site.texts.tarifs.revisionsLabel}
           </p>
           <p className="mt-1 text-[14px] leading-[1.6] text-[#5b5044]">
             {site.tarifsRevisionsNote}

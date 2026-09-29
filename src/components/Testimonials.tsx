@@ -1,19 +1,20 @@
 import { getSiteContent } from "@/lib/content";
+import type { Locale } from "@/i18n/config";
 import Image from "next/image";
 
-export default async function Testimonials() {
-  const site = await getSiteContent();
+export default async function Testimonials({ locale }: { locale: Locale }) {
+  const site = await getSiteContent(locale);
 
   return (
     <section id="avis" className="bg-[#f6efe4]">
       <div className="mx-auto max-w-[1180px] px-5 py-16 sm:px-10 md:py-20">
         <h2 className="mb-12 text-center font-serif font-medium text-[#37302a] text-[clamp(30px,5vw,46px)]">
-          Ils m&apos;ont fait confiance
+          {site.texts.testimonials.heading}
         </h2>
         <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <span className="mb-6 flex min-h-[2.5em] items-end text-[13px] uppercase tracking-[0.28em] text-[#c98b7e]">
-              Marques partenaires
+              {site.texts.testimonials.partnersLabel}
             </span>
             <div className="grid grid-cols-2 gap-4 sm:gap-5">
               {site.partners.map((p) => (
@@ -41,7 +42,7 @@ export default async function Testimonials() {
 
           <div>
             <span className="mb-6 flex min-h-[2.5em] items-end text-[13px] uppercase tracking-[0.28em] text-[#c98b7e]">
-              Ce qu&apos;ils disent de nos collaborations
+              {site.texts.testimonials.testimonialsLabel}
             </span>
             <div className="grid gap-6 sm:grid-cols-2">
               {site.testimonials.map((t, i) => {

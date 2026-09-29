@@ -1,7 +1,8 @@
 import { getSiteContent } from "@/lib/content";
+import type { Locale } from "@/i18n/config";
 
-export default async function Footer() {
-  const site = await getSiteContent();
+export default async function Footer({ locale }: { locale: Locale }) {
+  const site = await getSiteContent(locale);
   return (
     <footer className="bg-[#2e2822]">
       <div className="mx-auto flex max-w-[1180px] flex-col items-center justify-between gap-3 px-5 py-8 sm:flex-row sm:px-10">

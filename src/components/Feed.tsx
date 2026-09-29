@@ -1,9 +1,14 @@
 import { getSiteContent } from "@/lib/content";
+import { getDictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 import Photo from "./Photo";
 import { InstagramIcon } from "./icons";
 
-export default async function Feed() {
-  const site = await getSiteContent();
+export default async function Feed({ locale }: { locale: Locale }) {
+  const [site, t] = await Promise.all([
+    getSiteContent(locale),
+    getDictionary(locale),
+  ]);
   if (site.feed.length === 0) return null;
 
   return (
@@ -12,10 +17,10 @@ export default async function Feed() {
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <span className="text-[13px] uppercase tracking-[0.28em] text-[#c98b7e]">
-              En ce moment
+              {site.texts.feed.eyebrow}
             </span>
             <h2 className="mt-4 font-serif font-medium text-[#37302a] text-[clamp(32px,5vw,46px)]">
-              Sur Instagram
+              {site.texts.feed.title}
             </h2>
           </div>
           <a
@@ -25,7 +30,7 @@ export default async function Feed() {
             className="flex items-center gap-2 rounded-full bg-[#37302a] px-6 py-3 text-[13px] uppercase tracking-[0.06em] text-[#f6efe4] transition-colors hover:bg-[#c98b7e]"
           >
             <InstagramIcon className="h-4 w-4" />
-            Me suivre
+            {t.feed.followMe}
           </a>
         </div>
 
@@ -46,7 +51,7 @@ export default async function Feed() {
               <Photo
                 src={post.image || undefined}
                 alt={post.alt}
-                caption="post"
+                caption={t.feed.postCaption}
                 rounded="rounded-lg"
                 className="h-full w-full transition-transform duration-500 group-hover:scale-105"
               />

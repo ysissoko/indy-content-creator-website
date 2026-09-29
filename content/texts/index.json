@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "headline": "La cuisine, {racontée} avec gourmandise.",
+    "headlineEn": "Cooking, {told} with indulgence.",
+    "intro": "Recettes, mises en scène et vidéos qui donnent faim. Suivie par une communauté fidèle sur Instagram, TikTok et Snapchat.",
+    "introEn": "Recipes, styling and videos that make you hungry. Followed by a loyal community on Instagram, TikTok and Snapchat."
+  },
+  "about": {
+    "eyebrow": "à propos de moi",
+    "eyebrowEn": "about me",
+    "paragraph1": "La cuisine fait partie de moi depuis toujours. J'aime autant revisiter des recettes traditionnelles que créer des recettes originales, avec l'envie de toujours apporter ma petite touche.",
+    "paragraph1En": "Cooking has been part of me for as long as I can remember. I love revisiting traditional recipes just as much as creating original ones, always looking to add my own little touch.",
+    "paragraph2": "À travers mes contenus, j'aime partager une cuisine gourmande, créative et accessible mais surtout créer des recettes qui donnent réellement envie de cuisiner.",
+    "paragraph2En": "Through my content, I love sharing indulgent, creative and accessible cooking — and above all, creating recipes that genuinely make you want to cook."
+  },
+  "collabFood": {
+    "eyebrow": "mes collaborations",
+    "eyebrowEn": "my collaborations",
+    "title": "Recettes",
+    "titleEn": "Recipes"
+  },
+  "collabRestaurant": {
+    "eyebrow": "Revue de restaurants",
+    "eyebrowEn": "Restaurant reviews",
+    "title": "Dégustation et avis",
+    "titleEn": "Tastings & reviews"
+  },
+  "feed": {
+    "eyebrow": "En ce moment",
+    "eyebrowEn": "Right now",
+    "title": "Sur Instagram",
+    "titleEn": "On Instagram"
+  },
+  "testimonials": {
+    "heading": "Ils m'ont fait confiance",
+    "headingEn": "They trusted me",
+    "partnersLabel": "Marques partenaires",
+    "partnersLabelEn": "Partner brands",
+    "testimonialsLabel": "Ce qu'ils disent de nos collaborations",
+    "testimonialsLabelEn": "What they say about our collaborations"
+  },
+  "tarifs": {
+    "eyebrow": "Tarifs",
+    "eyebrowEn": "Rates",
+    "title": "Des formats pour chaque besoin",
+    "titleEn": "Formats for every need",
+    "revisionsLabel": "Révisions",
+    "revisionsLabelEn": "Revisions"
+  },
+  "contact": {
+    "eyebrow": "Travaillons ensemble",
+    "eyebrowEn": "Let's work together",
+    "title": "Un projet food\nen tête ?",
+    "titleEn": "A food project\nin mind?",
+    "intro": "Recettes, vidéos courtes, UGC ou campagne complète — dites-moi tout.",
+    "introEn": "Recipes, short videos, UGC or a full campaign — tell me everything."
+  }
+}

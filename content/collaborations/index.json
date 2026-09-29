@@ -3,77 +3,99 @@
     {
       "category": "food",
       "title": "Dakatine",
+      "titleEn": "",
       "meta": "Plat · 45 min",
+      "metaEn": "Dish · 45 min",
       "image": "/images/collaborations/items/0/image.jpeg",
       "link": "https://www.instagram.com/reel/DU0Jcj2iBsd/?igsh=MWljamhrMG8xbjM5MQ=="
     },
     {
       "category": "food",
       "title": "Dakatine",
+      "titleEn": "",
       "meta": "Dessert · 10 min",
+      "metaEn": "Dessert · 10 min",
       "image": "/images/collaborations/items/1/image.jpeg",
       "link": "https://www.instagram.com/reel/DU0Jcj2iBsd/?igsh=MWljamhrMG8xbjM5MQ=="
     },
     {
       "category": "food",
       "title": "Hydrofast",
+      "titleEn": "",
       "meta": "Mocktail · 5 min",
+      "metaEn": "Mocktail · 5 min",
       "image": "/images/collaborations/items/2/image.jpeg",
       "link": "https://www.instagram.com/reel/DZ7llsEtAaS/?igsh=MWMyamhvamF2bmY5Nw=="
     },
     {
       "category": "restaurant",
       "title": "The Smoked Meat",
+      "titleEn": "",
       "meta": "Paris 11e",
+      "metaEn": "Paris 11th",
       "image": "/images/collaborations/items/3/image.jpeg",
       "link": "https://www.instagram.com/reel/DQfIAOdgIqc/?igsh=MXR3aW9ybHl0dTFqNw=="
     },
     {
       "category": "restaurant",
       "title": "À l'Africaine",
+      "titleEn": "",
       "meta": "Fontenay s/s bois",
+      "metaEn": "Fontenay-sous-Bois",
       "image": "/images/collaborations/items/4/image.jpeg",
       "link": "https://www.instagram.com/reel/DYSNxTAtOyq/?igsh=ajI3NHo3b3J3eHBh"
     },
     {
       "category": "food",
       "title": "Seven Taste",
+      "titleEn": "",
       "meta": "African détox",
+      "metaEn": "African detox",
       "image": "/images/collaborations/items/5/image.jpg",
       "link": "https://www.instagram.com/reel/DdhRnmdgNZw/?stkn=MXNkOHF0OGJ3ZzE0ZA=="
     },
     {
       "category": "food",
       "title": "Hydrofast",
+      "titleEn": "",
       "meta": "Limonade au bissap blanc",
+      "metaEn": "White bissap lemonade",
       "image": "/images/collaborations/items/6/image.jpg",
       "link": "https://www.instagram.com/reel/Db5BSFaA-tI/?stkn=c201eW15OTFxY3V6"
     },
     {
       "category": "food",
       "title": "Les Délices d'Adama",
+      "titleEn": "",
       "meta": "Œuf croustillant",
+      "metaEn": "Crispy egg",
       "image": "/images/collaborations/items/7/image.jpg",
       "link": "https://www.instagram.com/reel/DcO45wRRYUm/?stkn=bmw5dTFzcnI0NzV0"
     },
     {
       "category": "food",
       "title": "Les Délices d'Adama",
+      "titleEn": "",
       "meta": "Hot wings et asperges",
+      "metaEn": "Hot wings and asparagus",
       "image": "/images/collaborations/items/8/image.jpg",
       "link": "https://www.instagram.com/reel/Dcy8EB1oDjF/?stkn=MXR3OHkxNDRjZXM4Zw=="
     },
     {
       "category": "food",
       "title": "Les Délices d'Adama",
+      "titleEn": "",
       "meta": "Tagliatelles au poulet",
+      "metaEn": "Chicken tagliatelle",
       "image": "/images/collaborations/items/9/image.jpg",
       "link": "https://www.instagram.com/reel/DdKG4Vwx3qi/?stkn=NDcwMWEzNTl6dm1m"
     },
     {
       "category": "food",
       "title": "Les Délices d'Adama",
+      "titleEn": "",
       "meta": "Grilled cheese au poulet",
+      "metaEn": "Chicken grilled cheese",
       "image": "/images/collaborations/items/10/image.jpg",
       "link": "https://www.instagram.com/reel/DdmHZ1xsRUM/?stkn=eTl4eTljbHRlYmxn"
     }

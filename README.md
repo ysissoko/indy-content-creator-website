@@ -4,6 +4,9 @@ Landing page for **Indy**, built with Next.js. Direction **1A — Éditorial Mag
 (warm beige palette, Cormorant Garamond serif, terracotta accents).
 
 Features:
+- **Bilingual (FR/EN)** — `/` is French, `/en` is English; visitors are
+  auto-redirected on first visit based on browser language, and can switch
+  manually via the nav (see [Editing in French and English](#-editing-in-french-and-english-i18n) below).
 - **Visual CMS (Keystatic)** — edit every number, photo and text in a browser at `/keystatic`.
 - **Dynamic stats** — follower counts animate (count-up) from the CMS values.
 - **Instagram feed** — a responsive grid of your latest posts, each linking to IG.
@@ -48,6 +51,41 @@ your content editor — no code needed. From the sidebar you can edit:
 > Prefer editing text files directly? The same content lives as JSON under
 > `content/` — but the `/keystatic` UI is the intended way. `src/config/site.ts`
 > now only holds fallback defaults + the data types.
+
+---
+
+## 🌍 Editing in French and English (i18n)
+
+The site is bilingual: **French lives at `/`** (the default) and **English at
+`/en`**. First-time visitors are redirected to whichever matches their
+browser's language; the **FR | EN** switcher in the nav lets them (and you)
+change it manually — the choice is remembered in a cookie.
+
+**Yes — every translatable piece of content is editable from `/keystatic`,**
+no code required. Each translatable field has an English sibling shown right
+next to the French one in the editor (e.g. *Accroche* / *Accroche (EN)*):
+
+| Section | Bilingual fields |
+|---------|-------------------|
+| **Réglages généraux** | Tagline, SEO description, and each stat's label (`Spectateurs` / `Viewers`, etc.) |
+| **Textes du site** *(new)* | All editorial copy that isn't tied to a CMS collection: the hero headline/intro, the "about me" paragraphs, section eyebrows/titles (recipes, restaurants, feed, testimonials, tarifs, contact) |
+| **Recettes** | Title, detail (e.g. `"Plat · 45 min"` / `"Dish · 45 min"`) |
+| **Feed Instagram** | Photo alt text |
+| **Tarifs** | Title, price, unit, features, price/revisions notes |
+
+- Leave an English field empty and the site falls back to the French text
+  (never a blank space) — handy while you're still translating.
+- **Témoignages** and **Marques partenaires** are intentionally left
+  French-only (client quotes shouldn't be paraphrased).
+- The hero headline supports one italic/accent word per language via
+  `{curly braces}`, e.g. `La cuisine, {racontée} avec gourmandise.` /
+  `Cooking, {told} with indulgence.` — the word inside `{}` doesn't have to be
+  the same length or position in both languages.
+- Small interface strings (buttons, form labels, cookie banner, error
+  messages) aren't in the CMS — they live in `src/i18n/dictionaries/{fr,en}.ts`
+  and need a code change to edit.
+- `NEXT_PUBLIC_SITE_URL` in `.env.local` (defaults to `https://indyslife.com`)
+  is used for the sitemap and `hreflang` tags — update it if the domain changes.
 
 ---
 
@@ -203,16 +241,24 @@ keystatic.config.tsx      CMS schema (what you can edit at /keystatic)
 content/                  your content, saved as JSON (edited via the CMS)
 src/
   app/
-    layout.tsx            fonts + SEO metadata
-    page.tsx              assembles the sections
-    globals.css           palette + base styles
-    keystatic/            the /keystatic admin UI
-    api/contact/route.ts  contact form → email (Resend)
-    api/keystatic/        CMS save/read handler
-  components/             one file per section
-  config/site.ts          content TYPES + fallback defaults
-  lib/content.ts          reads the CMS content → shape the components use
-  lib/format.ts           number formatting (K / M)
+    [lang]/
+      layout.tsx           fonts + SEO metadata (per-locale <html lang>)
+      page.tsx             assembles the sections
+    globals.css            palette + base styles
+    keystatic/             the /keystatic admin UI (its own root layout)
+    api/contact/route.ts   contact form → email (Resend), locale-aware replies
+    api/keystatic/         CMS save/read handler
+    sitemap.ts             /sitemap.xml (both locales + hreflang alternates)
+    robots.ts              /robots.txt
+  i18n/
+    config.ts              locales, default locale, path/cookie helpers
+    dictionaries/{fr,en}.ts interface micro-copy (buttons, forms, errors…)
+    dictionaries.ts         getDictionary(locale)
+  proxy.ts                 locale detection/redirect/rewrite (formerly "middleware")
+  components/              one file per section (each takes a `locale` prop)
+  config/site.ts           content TYPES + fallback defaults (FR + EN)
+  lib/content.ts           reads the CMS content → shape the components use, per locale
+  lib/format.tsx           number formatting (K / M) + {accent} markup renderer
 scripts/
   update_feed.py          Instagram → content/feed + public/images/feed
   update-feed.sh          venv bootstrap + run + optional commit/push

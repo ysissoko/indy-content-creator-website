@@ -2,44 +2,58 @@
   "items": [
     {
       "title": "Création de contenu",
+      "titleEn": "Content creation",
       "price": "à partir de 350 €",
+      "priceEn": "from €350",
       "unit": "1 vidéo",
+      "unitEn": "1 video",
       "features": [
-        "Conception & réalisation",
-        "Script si nécessaire",
-        "Tournage",
-        "Montage"
+        { "text": "Conception & réalisation", "textEn": "Concept & production" },
+        { "text": "Script si nécessaire", "textEn": "Script if needed" },
+        { "text": "Tournage", "textEn": "Filming" },
+        { "text": "Montage", "textEn": "Editing" }
       ]
     },
     {
       "title": "Story présentation de produit",
+      "titleEn": "Product showcase story",
       "price": "150 €",
+      "priceEn": "€150",
       "unit": "1 story présentation de produit",
+      "unitEn": "1 product showcase story",
       "features": [
-        "Réalisation & tournage"
+        { "text": "Réalisation & tournage", "textEn": "Production & filming" }
       ]
     },
     {
       "title": "UGC",
+      "titleEn": "",
       "price": "à partir de 400 €",
+      "priceEn": "from €400",
       "unit": "1 vidéo UGC",
+      "unitEn": "1 UGC video",
       "features": [
-        "Conception du contenu",
-        "Script si nécessaire",
-        "Tournage",
-        "Montage"
+        { "text": "Conception du contenu", "textEn": "Content concept" },
+        { "text": "Script si nécessaire", "textEn": "Script if needed" },
+        { "text": "Tournage", "textEn": "Filming" },
+        { "text": "Montage", "textEn": "Editing" }
       ]
     },
     {
       "title": "Droits publicitaires",
+      "titleEn": "Advertising rights",
       "price": "+50 %",
+      "priceEn": "+50%",
       "unit": "Ads",
+      "unitEn": "Ads",
       "features": [
-        "Utilisation du contenu en publicité pendant 1 mois",
-        "Renouvelable par période d'1 mois"
+        { "text": "Utilisation du contenu en publicité pendant 1 mois", "textEn": "Use of the content in ads for 1 month" },
+        { "text": "Renouvelable par période d'1 mois", "textEn": "Renewable per 1-month period" }
       ]
     }
   ],
   "priceNote": "Le tarif peut évoluer selon la complexité du brief, le nombre de contenus demandés et les usages prévus.",
-  "revisionsNote": "Jusqu'à 3 révisions incluses. Toute demande supplémentaire fera l'objet d'une facturation additionnelle."
+  "priceNoteEn": "The rate may vary depending on the brief's complexity, the number of pieces of content requested and the intended usage.",
+  "revisionsNote": "Jusqu'à 3 révisions incluses. Toute demande supplémentaire fera l'objet d'une facturation additionnelle.",
+  "revisionsNoteEn": "Up to 3 revisions included. Any additional request will be billed separately."
 }

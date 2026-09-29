@@ -1,5 +1,7 @@
-import type { CollabCategory, Collaboration } from "@/config/site";
+import type { CollabCategory, Collaboration, Site } from "@/config/site";
 import { getSiteContent } from "@/lib/content";
+import { getDictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 import Carousel from "./Carousel";
 import PhoneFrame from "./PhoneFrame";
 
@@ -7,29 +9,32 @@ import PhoneFrame from "./PhoneFrame";
 const CATEGORIES: {
   key: CollabCategory;
   id: string;
-  eyebrow: string;
-  title: string;
   bg: string;
+  texts: (site: Site) => { eyebrow: string; title: string };
 }[] = [
   {
     key: "food",
     id: "collaborations",
-    eyebrow: "mes collaborations",
-    title: "Recettes",
     bg: "bg-[#f6efe4]",
+    texts: (site) => site.texts.collabFood,
   },
   {
     key: "restaurant",
     id: "avis-restaurants",
-    eyebrow: "Revue de restaurants",
-    title: "Dégustation et avis",
     bg: "bg-[#efe6d8]",
+    texts: (site) => site.texts.collabRestaurant,
   },
 ];
 
-function PhoneCard({ item }: { item: Collaboration }) {
+function PhoneCard({
+  item,
+  reelCaption,
+}: {
+  item: Collaboration;
+  reelCaption: string;
+}) {
   const frame = (
-    <PhoneFrame src={item.image || undefined} alt={item.title} caption="reel" />
+    <PhoneFrame src={item.image || undefined} alt={item.title} caption={reelCaption} />
   );
   return (
     <li className="snap-start">
@@ -66,14 +71,18 @@ function Caption({ item }: { item: Collaboration }) {
   );
 }
 
-export default async function Collaborations() {
-  const site = await getSiteContent();
+export default async function Collaborations({ locale }: { locale: Locale }) {
+  const [site, t] = await Promise.all([
+    getSiteContent(locale),
+    getDictionary(locale),
+  ]);
 
   return (
     <>
       {CATEGORIES.map((cat) => {
         const items = site.collaborations.filter((c) => c.category === cat.key);
         if (items.length === 0) return null;
+        const { eyebrow, title } = cat.texts(site);
 
         return (
           <section key={cat.key} id={cat.id} className={cat.bg}>
@@ -81,10 +90,10 @@ export default async function Collaborations() {
               <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
                 <div>
                   <h2 className="font-serif font-medium uppercase text-[#37302a] text-[clamp(32px,5vw,46px)]">
-                    {cat.eyebrow}
+                    {eyebrow}
                   </h2>
                   <span className="mt-2 block text-[13px] uppercase tracking-[0.28em] text-[#c98b7e]">
-                    {cat.title}
+                    {title}
                   </span>
                 </div>
                 <a
@@ -93,13 +102,17 @@ export default async function Collaborations() {
                   rel="noopener noreferrer"
                   className="shrink-0 text-[14px] uppercase tracking-[0.06em] text-[#c98b7e] transition-opacity hover:opacity-70"
                 >
-                  Tout voir →
+                  {t.collaborations.seeAll}
                 </a>
               </div>
 
               <Carousel>
                 {items.map((item, i) => (
-                  <PhoneCard key={`${item.link ?? item.title}-${i}`} item={item} />
+                  <PhoneCard
+                    key={`${item.link ?? item.title}-${i}`}
+                    item={item}
+                    reelCaption={t.collaborations.reelCaption}
+                  />
                 ))}
               </Carousel>
             </div>

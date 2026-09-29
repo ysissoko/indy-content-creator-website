@@ -18,3 +18,22 @@ export function formatCount(n: number): string {
   }
   return String(n);
 }
+
+/**
+ * Renders a string containing "{accent}" markup, styling the enclosed text
+ * in italic + the accent color — used for editorial copy (e.g. the hero
+ * headline) that's editable in both languages via Keystatic, where the
+ * emphasized word/phrase differs per language.
+ */
+export function renderAccent(text: string): React.ReactNode[] {
+  const parts = text.split(/\{([^}]+)\}/);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <span key={i} className="italic text-[#c98b7e]">
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+}

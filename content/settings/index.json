@@ -1,8 +1,10 @@
 {
   "name": "INDY",
   "tagline": "Créatrice de contenu food",
+  "taglineEn": "Food content creator",
   "domainLabel": "indyslife",
   "seoDescription": "Indy — créatrice de contenu food depuis 2020. Recettes, mises en scène et vidéos qui donnent faim, et créations pour les marques.",
+  "seoDescriptionEn": "Indy — food content creator since 2020. Recipes, styling and videos that make you hungry, plus branded creations.",
   "contactEmail": "contact@indyslife.com",
   "socials": {
     "instagram": "https://www.instagram.com/indyslife_",
@@ -14,23 +16,33 @@
   "stats": [
     {
       "value": 763000,
-      "label": "Spectateurs"
+      "label": "Spectateurs",
+      "labelEn": "Viewers",
+      "key": ""
     },
     {
       "value": 72000,
-      "label": "J'aime"
+      "label": "J'aime",
+      "labelEn": "Likes",
+      "key": ""
     },
     {
       "value": 2000000,
-      "label": "Vues de reel"
+      "label": "Vues de reel",
+      "labelEn": "Reel views",
+      "key": ""
     },
     {
       "value": 41000,
-      "label": "Enregistrements"
+      "label": "Enregistrements",
+      "labelEn": "Saves",
+      "key": ""
     },
     {
       "value": 14000,
-      "label": "Partages"
+      "label": "Partages",
+      "labelEn": "Shares",
+      "key": ""
     }
   ]
 }
